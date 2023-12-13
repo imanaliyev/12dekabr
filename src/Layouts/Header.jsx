@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import { Carousel } from 'react-carousel-minimal';
 import { BasketContext } from '../Context/BasketContext';
+import { wishlistcontext } from '../Context/WishlistContext';
 
 function Header() {
     const {basket} = useContext(BasketContext)
+    const {wishlist} = useContext(wishlistcontext)
     const data = [
         {
           image: "https://preview.colorlib.com/theme/cozastore/images/slide-02.jpg.webp",
@@ -26,8 +28,11 @@ function Header() {
         
 
       }
-      const open =()=>{
+      const openBasket =()=>{
         document.querySelector(".aside-basket").classList.toggle("active")
+      }
+      const openWishlist =()=>{
+        document.querySelector(".aside-wishlist").classList.toggle("active")
       }
     
   return (
@@ -47,8 +52,8 @@ function Header() {
        <div className="right">
         
        <i class="fa-solid fa-magnifying-glass"></i>
-       <i onClick={open} class="fa-solid fa-cart-shopping"> <span>{basket.length}</span></i>
-       <i class="fa-regular fa-heart"></i>
+       <i onClick={openBasket} class="fa-solid fa-cart-shopping"> <span>{basket.length}</span></i>
+       <i onClick={openWishlist} class="fa-regular fa-heart"><span>{wishlist.length}</span></i>
 
        </div>
 

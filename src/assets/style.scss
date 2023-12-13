@@ -53,6 +53,7 @@ header{
         gap: 40px;
         i{
             cursor: pointer;
+            font-weight: bold;
             
             font-size: 18px;
         }
@@ -240,7 +241,7 @@ header{
         ul{
             width: 350px;
             height: 450px;
-            &:hover > button{
+            &:hover > .button{
                 width: 100px;
              
             }
@@ -248,7 +249,7 @@ header{
                opacity: 1;
              
             }
-            button{
+            .button{
                 width: 0;
                 height: 24px;
                 border: none;
@@ -276,6 +277,46 @@ header{
 
         }
     }
+    .aside-wishlist{
+        width: 0;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgb(161, 30, 30);
+        z-index: 5;
+        overflow: scroll;
+        i{
+            position: absolute;
+            top: 20px;
+            font-size: 22px;
+            left: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .wishlist-products{
+            margin-top: 50px;
+           
+            display: grid;
+            grid-template-columns: auto auto ; 
+            row-gap: 12px;
+            place-items: center;
+            
+           
+            ul{
+                width: 160px;
+                height: 300px;
+                background-color: #7180e046;
+                font-size: 14px;
+          
+                
+                img{
+                    height: 60%;
+                }
+            }
+        }
+
+    }
     .aside-basket{
         width: 0;
         height: 100vh;
@@ -285,6 +326,19 @@ header{
         background-color: rgb(110, 110, 110);
         z-index: 5;
         overflow: scroll;
+        .totalPrice{
+            width: 100%;
+            background-color: #717fe0;
+            height: 50px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            padding-left: 20px  ;
+            font-weight: bold;
+           
+        }
         i{
             position: absolute;
             top: 20px;
@@ -304,9 +358,10 @@ header{
            
             ul{
                 width: 160px;
-                height: 200px;
+                height: 300px;
                 background-color: #7180e046;
                 font-size: 14px;
+          
                 .price{
                     font-weight: bold;
                 }
@@ -319,8 +374,9 @@ header{
 
 }
 .red{
-    color: red;
+    color: red !important;
 }
+
 .active{
     width: 500px !important;
 }
