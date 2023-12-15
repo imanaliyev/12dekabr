@@ -13,15 +13,12 @@ function WishlistProvider( {children}) {
         if (index === -1 ) {
             setWishlist([...wishlist,item])
             document.querySelector(`#a${item.id}`).classList.add("red")
+            
           
 
           
            
             
-            
-           
-            
-
             
         }
         else{
@@ -32,6 +29,15 @@ function WishlistProvider( {children}) {
 
     }
 
+    const removeItemWishlist =(item)=>{
+
+        setWishlist(wishlist.filter(x=> x.id !== item.id))
+        document.querySelector(`#a${item.id}`).classList.remove("red")
+
+    }
+
+ 
+
 
 
 
@@ -39,9 +45,10 @@ function WishlistProvider( {children}) {
 
 
     const data={
-        wishlist,addWishlist
+        wishlist,addWishlist,removeItemWishlist,
 
     }
+
   return (
     <>
     <wishlistcontext.Provider value={data}>

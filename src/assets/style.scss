@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     list-style: none;
+    a{
+        text-decoration: none;
+    }
     button{
         cursor: pointer;
     }
@@ -17,9 +20,14 @@ header{
     padding: 10px 200px 10px 200px;
     margin-bottom: 20px;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 2;
     width: 100%;
     background-color: rgba(113, 128, 224, 0.26);
+    a{
+        color: black;
+    }
     .left{
         display: flex;
         img{
@@ -375,6 +383,7 @@ header{
 }
 .red{
     color: red !important;
+    transition: 100ms;
 }
 
 .active{

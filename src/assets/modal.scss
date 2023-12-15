@@ -24,17 +24,113 @@
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        text-align: center;
+      display: flex;
+      
+      justify-content: start;
         position: fixed;
-        top: 28%;
+        top: 5%;
+        width: 1500px;
+        height: 850px;
       
-      
+        z-index: 5;
+        padding-left: 100px;
+        .info{
+            display: flex;
+            flex-direction: column;
+            width: 800px;
+            .name{
+                font-weight: bold;
+                font-size: 22px;
+            }
+            .price{
+                margin-top: 40px;
+                font-weight: bold;
+                font-size: 22px;
 
-        
-    
-        z-index: 41;
-        img {
-            height: 300px;
+            }
+            .info-txt{
+                margin-top: 40px;
+                color: grey;
+            }
+           
+            
+          
+          
         }
+       .select{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        padding-left: 10px;
+        gap: 20px;
+        .size{
+           
+            display: flex;
+            gap: 19px;
+            select{
+                width: 100px;
+                
+            }
+        }
+        .color{
+            display: flex;
+            gap: 10px   ;
+            select{
+                width: 100px;
+                
+                
+            }
+            
+        }
+       }
+        .images{
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            
+            justify-content: start;
+            padding-top: 30px;
+            gap: 10px;
+          
+            img{
+                height: 100px;
+            }
+        }
+        .carusel{
+            margin-left: 150px;
+            width: 40%;
+            .carousel-container {
+                background-color: white !important    ;
+            
+                
+                position: relative;
+                .next{
+                    color: rgba(0, 0, 0, 0.384);
+                    &:hover{
+                       
+                        color: white;
+                    }
+                }
+                .prev{
+                    color: rgba(0, 0, 0, 0.404);
+                    &:hover{
+                       
+                        color: white;
+                    }
+                }
+                
+            }
+          
+            .carousel-image{
+                height: 400px;
+                position: absolute;
+                top: 25%;
+            }
+            
+ 
+
+
+        }
+        
     }
 }

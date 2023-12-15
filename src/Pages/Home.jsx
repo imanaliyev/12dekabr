@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { BasketContext } from "../Context/BasketContext";
 import WishlistProvider, { wishlistcontext } from "../Context/WishlistContext";
 import Modal from "../components/Modal";
+import { Carousel } from 'react-carousel-minimal';
 
 function Home() {
   const {
@@ -12,8 +13,9 @@ function Home() {
     increase,
     decrease,
     totalPrice,
+    
   } = useContext(BasketContext);
-  const { wishlist, addWishlist } = useContext(wishlistcontext);
+  const { wishlist, addWishlist,removeItemWishlist } = useContext(wishlistcontext);
   const [category, setCategory] = useState("all");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,6 +23,28 @@ function Home() {
   const handleCategory = (category) => {
     setCategory(category);
   };
+  const data = [
+    {
+      image: "https://preview.colorlib.com/theme/cozastore/images/slide-02.jpg.webp",
+      caption:"<div class='txt'><h2 >Men's new collection</h2><h1>New Arrivval</h1> <button>Shop Now </button></div>"
+    
+    },
+    {
+      image: "https://preview.colorlib.com/theme/cozastore/images/slide-03.jpg.webp",
+      caption:"<div class='txt'><h2 >Men's new collection</h2><h1>New Season</h1> <button>Shop Now </button></div>"
+    },
+    {
+        image: "https://preview.colorlib.com/theme/cozastore/images/slide-01.jpg.webp",
+        caption:"<div class='txt'><h2 >Womans's new collection</h2><h1>New Arrivval</h1> <button>Shop Now </button></div>"
+      },
+
+  ];
+  const captionStyle = {
+    fontSize: '2em',
+    fontWeight: 'bold',
+    
+
+  }
 
   const filteredProducts =
     category === "all"
@@ -46,6 +70,23 @@ function Home() {
   
   return (
     <>
+    <div className="carusel">
+     <Carousel
+            data={data}
+            time={3500}
+            width="100%"
+            height="800px"
+            automatic={true}
+            captionStyle={captionStyle}
+            
+            pauseIconColor="white"
+            pauseIconSize="40px"
+            slideBackgroundColor="darkgrey"
+            slideImageFit="cover"
+           
+            
+          />
+     </div>
       {isModalOpen && (
         <Modal product={selectedProduct} closeModal={closeModal} />
       )}
@@ -162,6 +203,7 @@ function Home() {
                     <img src={x.thumbnail} />
                     <li>{x.name.slice(0, 50)}</li>
                     <li className="price">{x.price} $</li>
+                    <button onClick={()=>removeItemWishlist(x)}>remove</button>
                   </div>
                 </ul>
               ))}
